@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { EstudiantesModule } from './modules/estudiantes/estudiantes.module';
+import { ProfesoresModule } from './modules/profesores/profesores.module';
 
 @Module({
   imports: [EstudiantesModule, 
@@ -15,7 +16,7 @@ import { EstudiantesModule } from './modules/estudiantes/estudiantes.module';
     database: 'sistema-academico',
     autoLoadEntities: true,
     synchronize: true,
-  }),],
+  }), ProfesoresModule,],
   controllers: [AppController],
   providers: [AppService],
 })
