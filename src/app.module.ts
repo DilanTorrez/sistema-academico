@@ -12,7 +12,7 @@ import { ProfesoresModule } from './modules/profesores/profesores.module';
   imports: [EstudiantesModule, 
     TypeOrmModule.forRoot({
     type: 'postgres',
-    host: 'localhost',
+    host: 'posgresito',
     port: 5432,
     username: 'postgres',
     password: '123456',
