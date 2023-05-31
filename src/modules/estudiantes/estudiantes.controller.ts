@@ -1,7 +1,6 @@
 import { Controller, Get, Post, Put, Delete, Body, Param } from '@nestjs/common';
 import { EstudiantesService } from './estudiantes.service';
 import { Estudiante } from './estudiante.entity';
-import { CreateEstudianteDto, UpdateEstudianteDto } from './estudiante.dto';
 //swagger tags (descripcion y operadores de swagger)
 import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
 
@@ -27,20 +26,17 @@ export class EstudiantesController {
   }
 
   @Post()
-  create(@Body() createEstudianteDto: CreateEstudianteDto): Promise<Estudiante> {
-    return this.estudiantesService.create(createEstudianteDto);
+  create(@Body() estudiante: Estudiante): Promise<Estudiante> {
+    return this.estudiantesService.create(estudiante);
   }
 
   @Put(':id')
-  update(
-    @Param('id') id: number,
-    @Body() updateEstudianteDto: UpdateEstudianteDto,
-  ): Promise<Estudiante> {
-    return this.estudiantesService.update(id, updateEstudianteDto);
+  update(@Param('id') id: number, @Body() estudiante: Estudiante): Promise<Estudiante> {
+    return this.estudiantesService.update(id, estudiante);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: number): Promise<void> {
-    return this.estudiantesService.remove(id);
+  delete(@Param('id') id: number): Promise<void> {
+    return this.estudiantesService.delete(id);
   }
 }

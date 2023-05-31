@@ -1,13 +1,13 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn } from 'typeorm';
 import { Usuario } from '../usuarios/usuario.entity';
 
-@Entity('Estudiantes')
-export class Estudiante {
+@Entity('PersonalAdministrativo')
+export class PersonalAdministrativo {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column({length: 100})
-  grado: string;
+  cargo: string;
 
   @OneToOne(() => Usuario, { onDelete: 'CASCADE' })
   @JoinColumn()

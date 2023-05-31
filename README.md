@@ -1,4 +1,4 @@
-# sistema-academico
+## Sistema Academico
 proyecto sistema academico estudiantil hecho con nest.js backend
 
 ## Running the app

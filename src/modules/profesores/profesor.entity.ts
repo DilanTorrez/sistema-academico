@@ -1,22 +1,15 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn } from 'typeorm';
+import { Usuario } from '../usuarios/usuario.entity';
 
 @Entity('profesores')
 export class Profesor {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ length: 100 })
-  nombre: string;
+  @Column({length: 100})
+  especialidad: string;
 
-  @Column({ length: 100 })
-  apellido: string;
-
-  @Column({ unique: true, length: 100 })
-  email: string;
-
-  @Column()
-  fechaNacimiento: Date;
-
-  @Column({ nullable: true })
-  telefono: string;
+  @OneToOne(() => Usuario, { onDelete: 'CASCADE' })
+  @JoinColumn()
+  usuario: Usuario;
 }

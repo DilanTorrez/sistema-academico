@@ -7,19 +7,21 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
 import { EstudiantesModule } from './modules/estudiantes/estudiantes.module';
 import { ProfesoresModule } from './modules/profesores/profesores.module';
+import { UsuariosModule } from './modules/usuarios/usuarios.module';
+import { PersonalAdministrativoModule } from './modules/personal-administrativo/personal-administrativo.module';
 
 @Module({
   imports: [EstudiantesModule, 
     TypeOrmModule.forRoot({
     type: 'postgres',
-    host: 'posgresito',
+    host: 'localhost',
     port: 5432,
     username: 'postgres',
     password: '123456',
-    database: 'sistema-academico',
+    database: 'sae2',
     autoLoadEntities: true,
     synchronize: true,
-  }), ProfesoresModule,],
+  }), ProfesoresModule, UsuariosModule, PersonalAdministrativoModule,],
   controllers: [AppController],
   providers: [AppService],
 })

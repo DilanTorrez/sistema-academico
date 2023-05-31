@@ -1,16 +1,8 @@
 export class CreateEstudianteDto {
-    nombre: string;
-    apellido: string;
-    email: string;
-    fechaNacimiento: Date;
-    telefono?: string;
+    grado: string;
   }
   
   export class UpdateEstudianteDto {
-    nombre?: string;
-    apellido?: string;
-    email?: string;
-    fechaNacimiento?: Date;
-    telefono?: string;
+    grado?: string;
   }
   
